@@ -1,3 +1,5 @@
+DELETE
+
 # OpenScraping Node.js library
 
 Alpha version, do not use for production yet.
