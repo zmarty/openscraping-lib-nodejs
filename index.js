@@ -45,8 +45,8 @@ module.exports = (function createParser () {
       reduceTransformations[attrname] = externalReduceTransformations[attrname]
     }
     
-    var document = jsdom.jsdom(html.toString())
-    var xhtml = xmlser.serializeToString(document)
+    var document = new jsdom.JSDOM(html.toString())
+    var xhtml = xmlser.serializeToString(document.window.document)
     xhtml = xhtml.replace(' xmlns="http://www.w3.org/1999/xhtml"', '') // Ugly hack, for now
     var doc = new dom().parseFromString(xhtml)
     return parseNode(config, doc)
